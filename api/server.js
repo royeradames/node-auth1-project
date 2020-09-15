@@ -3,7 +3,6 @@ const helmet = require('helmet')
 const cors = require('cors')
 
 const usersRouter = require('../users/users-router.js')
-// const authRouter = require('../auth/auth-router')
 const bcryptjs = require('bcryptjs')
 const Users = require("../users/users-model.js");
 
@@ -42,7 +41,6 @@ server.use(express.json())
 server.use(cors())
 
 server.use('/api/users', authenticate, usersRouter)
-// server.use('/api/auth', authRouter)
 server.use((err, req, res, next) => {
   console.log(err.message)
   res.status(500).json({
