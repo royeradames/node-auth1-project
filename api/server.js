@@ -53,7 +53,7 @@ server.use((err, req, res, next) => {
 server.get('/', (req, res) => {
   res.json({ api: 'up' })
 })
-server.get('/api/register', (req, res, next) => {
+server.post('/api/register', (req, res, next) => {
   let creds = req.body
   const rounds = process.env.HASH_ROUNDS || 4
 
@@ -67,7 +67,7 @@ server.get('/api/register', (req, res, next) => {
     })
     .catch(next)
 })
-server.get('/api/login', (req, res, next) => {
+server.post('/api/login', (req, res, next) => {
   //how to verify passwords?
 
   const { username, password } = req.body
